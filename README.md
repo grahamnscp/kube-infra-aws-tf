@@ -3,10 +3,10 @@ Terraform to provision infra for random deployment tests on AWS
 
 ## Generate custom variables.tf
 Custom config is defined in params.sh which is used by setup.sh to generate the variables.tf from a template file variables.tf.template
-
+```
 edit: params.sh
 run ./setup.sh
-
+```
 check variables.tf is as required.
 
 note: if you want to add variables you need to change the template and the setup script as well as adding them to the params.sh
@@ -28,7 +28,7 @@ terraform apply
 ```
 
 ## check the terraform output variables are looking good
-as they are used by later scripts to generate the config files for ansible..
+as they are used by later scripts to generate the inventory files for ansible..
 
 ```
 terraform output
@@ -45,9 +45,12 @@ First generate an ansible hosts file to use with the playbooks defined in the si
   - ntp
   - pre-deploy
   - firewall
+
+- hosts: bootstrap
   - docker-install
 ```
 note: this script includes the params.sh so gets some of the variables directly from there, the rest are parsed from terraform output.
+note2: I've moved the docker installation to only run on the bootstrap/jump host as most kubernetes installers use containerd now
 
 ```
 ./generate-hosts-file.sh
