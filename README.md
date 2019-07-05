@@ -47,6 +47,7 @@ First generate an ansible hosts file to use with the playbooks defined in the si
   - firewall
 
 - hosts: bootstrap
+  roles:
   - docker-install
 ```
 note: this script includes the params.sh so gets some of the variables directly from there, the rest are parsed from terraform output.
