@@ -4,10 +4,11 @@ Terraform to provision infra for random deployment tests on AWS
 ## Generate custom variables.tf
 Custom config is defined in params.sh which is used by setup.sh to generate the variables.tf from a template file variables.tf.template
 ```
+cp ./params.sh.example ./params.sh
 edit: params.sh
 run ./setup.sh
 ```
-check variables.tf is as required.
+check generated variables.tf is as required, no missing variables etc.
 
 note: if you want to add variables you need to change the template and the setup script as well as adding them to the params.sh
 

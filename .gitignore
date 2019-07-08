@@ -1,0 +1,29 @@
+# OS files
+[Tt]humbs.db
+*.DS_Store
+.AppleDouble
+.LSOverride
+
+# Misc
+eval.txt
+*.swp
+*.pem
+
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.backup
+*.tfstate.lock.info
+site.retry
+
+# Specific instances of template generated files
+variables.tf
+hosts
+inventory.ini
+inventory.yaml
+
+# Active version of params.sh, push params.sh.example instead
+params.sh
+
+# Dumping directory for files
+save/
